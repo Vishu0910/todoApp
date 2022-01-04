@@ -1,0 +1,22 @@
+<%= form_for(@list) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% @list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container form-inline my-2 my-lg-0" style="padding-top:80px">
+  <h2>Add a new item</h2>
+  <br>
+   <%= f.text_field :title, class: "form-control mr-sm-2",placeholder: "Title"%>
+    <%= f.text_field :description, class: "form-control mr-sm-2",placeholder: "Description" %>
+    <br>
+    <%= f.submit "Add TODO Item", class: "btn btn-primary my-2 my-sm-0" %>
+  </div>
+<% end %>
